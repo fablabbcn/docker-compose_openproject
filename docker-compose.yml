@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  web:
+    image: openproject/community:7
+    restart: unless-stopped
+    volumes:
+      - /var/lib/openproject/pgdata:/var/lib/postgresql/9.4/main
+      - /var/lib/openproject/logs:/var/log/supervisor
+      - /var/lib/openproject/static:/var/db/openproject
+    ports:
+      - 80:80
+    env_file: .env
+    environment:
+      - SECRET_KEY_BASE="${MY_SECRET_KEY}" # Takes value from the '.env' file
+      #- EMAIL_DELIVERY_METHOD=smtp
+      #- SMTP_ADDRESS=smtp.sendgrid.net
+      #- SMTP_PORT=587
+      #- SMTP_DOMAIN="${SMTP_DOM}"
+      #- SMTP_AUTHENTICATION=login
+      #- SMTP_ENABLE_STARTTLS_AUTO=true
+      #- SMTP_USER_NAME="${SMTP_USER}"
+      #- SMTP_PASSWORD="${SMTP_PASS}"
