@@ -1,6 +1,10 @@
 # docker-compose_openproject
 Start OpenProject with docker-compose
 
+OpenProject: https://www.openproject.org/docker/
+
+
+
 
 ## Configuration
 
@@ -11,3 +15,10 @@ Start OpenProject with docker-compose
 ## Start
 
 `docker-compose up`
+
+
+
+### TODO:
+  1. SSL
+  2. db in its own container?
+  
